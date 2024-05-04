@@ -1,0 +1,351 @@
+@import "../styles/theme.scss";
+// Define variables
+$color_1: #fff;
+$font-family_1: "Poppins", sans-serif;
+$background-color_4: rgba(255, 255, 255, 0.075);
+
+// Import Google Fonts
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap";
+
+// Flex container
+.wrapper {
+  display: flex;
+}
+
+// Main container styles
+.main {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.35s ease-in-out;
+}
+
+// Sidebar container styles
+#sidebar {
+  width: 70px;
+  min-width: 70px;
+  height: 100vh;
+  z-index: 1000;
+  transition: all 0.25s ease-in-out;
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+
+  @media (max-width: 576px) {
+    display: none;
+  }
+
+  .toggle-btn {
+    img {
+      width: 30px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &:not(.expand) {
+    .sidebar-logo {
+      display: none;
+    }
+
+    a.sidebar-link {
+      span {
+        display: none;
+      }
+    }
+
+    .sidebar-item {
+      .sidebar-dropdown {
+        position: absolute;
+        top: 0;
+        left: 70px;
+        background-color: var(--primary-color);
+        padding: 0;
+        min-width: 15rem;
+        display: none;
+      }
+
+      &:hover {
+        .has-dropdown + .sidebar-dropdown {
+          display: block;
+          max-height: 15em;
+          width: 100%;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// Sidebar expansion styles
+#sidebar.expand {
+  width: 260px;
+  min-width: 260px;
+
+  .sidebar-link[data-bs-toggle="collapse"] {
+    &::after {
+      border: solid;
+      border-width: 0 0.075rem 0.075rem 0;
+      content: "";
+      display: inline-block;
+      padding: 2px;
+      position: absolute;
+      right: 1.5rem;
+      top: 1.4rem;
+      transform: rotate(-135deg);
+      transition: all 0.2s ease-out;
+    }
+  }
+
+  .sidebar-link[data-bs-toggle="collapse"].collapsed {
+    &::after {
+      transform: rotate(45deg);
+      transition: all 0.2s ease-out;
+    }
+  }
+}
+
+// Toggle button styles
+.toggle-btn {
+  background-color: var(--transparent-color);
+  cursor: pointer;
+  border: 0;
+  padding: 1rem 1.5rem;
+
+  i {
+    font-size: 1.5rem;
+    color: $color_1;
+  }
+}
+
+// Logo styles
+.sidebar-logo {
+  margin: auto 0;
+
+  a {
+    color: $color_1;
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+}
+
+// Sidebar navigation styles
+.sidebar-nav {
+  padding: 2rem 0;
+  flex: 1 1 auto;
+}
+
+// Sidebar link styles
+a.sidebar-link {
+  padding: 0.625rem 1.625rem;
+  color: $color_1;
+  display: block;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  border-left: 3px solid transparent;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $background-color_4;
+    border-left: 3px solid #3b7ddd;
+  }
+}
+
+// Icon styles within sidebar links
+.sidebar-link {
+  i {
+    font-size: 1.1rem;
+    margin-right: 0.75rem;
+  }
+}
+
+// Positioning for sidebar items
+.sidebar-item {
+  position: relative;
+}
+
+.navbar {
+  display: flex;
+  padding: 0;
+
+  h1 {
+    font-size: 40px;
+    line-height: 50px;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin: 10px auto;
+  }
+}
+.documentation-main {
+  padding: 10px 20px;
+  margin-left: 5%;
+
+  @media (max-width: 576px) {
+    padding: 10px;
+    margin: 0px;
+  }
+  .documentation-introdution {
+    padding: 20px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    h2 {
+      font-size: 28px;
+      line-height: 38px;
+      font-weight: 500;
+      color: var(--text-white);
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 26px;
+      color: var(--text-white);
+
+      a {
+        text-decoration: none;
+        color: var(--text-white) !important;
+      }
+    }
+  }
+  .documentation-start {
+    padding: 20px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    text-decoration: none !important;
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 28px;
+      line-height: 38px;
+      font-weight: 500;
+      color: var(--text-white);
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 26px;
+      color: var(--text-white);
+      margin-bottom: 10px;
+    }
+    .documentation-folder {
+      padding: 20px;
+      background-color: var(--text-white);
+
+      p {
+        color: var(--text-black);
+      }
+    }
+    h3 {
+      margin-top: 10px;
+      font-size: 18px;
+      color: var(--text-white);
+      margin-bottom: 10px;
+    }
+    a {
+      color: var(--text-black);
+      text-decoration: none;
+    }
+    .documetation-installation {
+      padding: 20px;
+      background-color: var(--text-white);
+
+      p {
+        color: var(--text-black);
+      }
+    }
+    p {
+      margin-top: 10px;
+    }
+  }
+  .documentation-structure {
+    padding: 20px;
+    background-color: var(--primary-color);
+    margin-bottom: 20px;
+    border-radius: 10px;
+
+    h2 {
+      font-size: 28px;
+      line-height: 38px;
+      font-weight: 500;
+      color: var(--text-white);
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 26px;
+      color: var(--text-white);
+      margin-bottom: 10px;
+    }
+
+    .documentation-structure-code {
+      padding: 20px;
+      background-color: var(--text-white);
+      h2 {
+        color: var(--text-black);
+      }
+      textarea {
+        height: auto;
+        outline: none;
+      }
+    }
+  }
+  .documentation-componets,
+  .documentation-card,
+  .documentation-form,
+  .documentation-icon {
+    padding: 20px;
+    background-color: var(--primary-color);
+    margin-bottom: 20px;
+    border-radius: 10px;
+
+    h2 {
+      font-size: 28px;
+      line-height: 38px;
+      font-weight: 500;
+      color: var(--text-white);
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 600;
+      color: var(--text-white);
+      margin-bottom: 10px;
+    }
+    .documentation-ui {
+      padding: 20px;
+      background-color: var(--text-white);
+
+      p {
+        margin-top: 10px;
+        color: var(--text-black);
+      }
+      textarea {
+        display: flex;
+        align-items: center;
+        margin: 10px 0px;
+
+        @media (max-width: 576px) {
+          height: min-content;
+        }
+      }
+      .card {
+        max-width: 100%;
+      }
+      ol {
+        li {
+          @media (max-width: 576px) {
+            font-size: 14px;
+          }
+          a {
+            @media (max-width: 576px) {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

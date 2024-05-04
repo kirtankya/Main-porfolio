@@ -1,0 +1,253 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap";
+:root {
+  --primary-color: #9249f2;
+  --transparent-color: transparent;
+  --text-white: #fff;
+  --background-color: #fff4ed;
+  --secondary-color: #f4edfe;
+  --bg-color: #f2f8ff;
+  --button-color: #f5f6f7;
+  --text-black: #121314;
+  --theme-sky-color: #f5f5f5;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.main {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.35s ease-in-out;
+}
+
+#sidebar {
+  width: 70px;
+  min-width: 70px;
+  height: 100vh;
+  z-index: 1000;
+  transition: all 0.25s ease-in-out;
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+}
+#sidebar .toggle-btn img {
+  width: 30px;
+  display: flex;
+  justify-content: center;
+}
+#sidebar:not(.expand) .sidebar-logo {
+  display: none;
+}
+#sidebar:not(.expand) a.sidebar-link span {
+  display: none;
+}
+#sidebar:not(.expand) .sidebar-item .sidebar-dropdown {
+  position: absolute;
+  top: 0;
+  left: 70px;
+  background-color: var(--primary-color);
+  padding: 0;
+  min-width: 15rem;
+  display: none;
+}
+#sidebar:not(.expand) .sidebar-item:hover .has-dropdown + .sidebar-dropdown {
+  display: block;
+  max-height: 15em;
+  width: 100%;
+  opacity: 1;
+}
+
+#sidebar.expand {
+  width: 260px;
+  min-width: 260px;
+}
+#sidebar.expand .sidebar-link[data-bs-toggle=collapse]::after {
+  border: solid;
+  border-width: 0 0.075rem 0.075rem 0;
+  content: "";
+  display: inline-block;
+  padding: 2px;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.4rem;
+  transform: rotate(-135deg);
+  transition: all 0.2s ease-out;
+}
+#sidebar.expand .sidebar-link[data-bs-toggle=collapse].collapsed::after {
+  transform: rotate(45deg);
+  transition: all 0.2s ease-out;
+}
+
+.toggle-btn {
+  background-color: var(--transparent-color);
+  cursor: pointer;
+  border: 0;
+  padding: 1rem 1.5rem;
+}
+.toggle-btn i {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.sidebar-logo {
+  margin: auto 0;
+}
+.sidebar-logo a {
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.sidebar-nav {
+  padding: 2rem 0;
+  flex: 1 1 auto;
+}
+
+a.sidebar-link {
+  padding: 0.625rem 1.625rem;
+  color: #fff;
+  display: block;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  border-left: 3px solid transparent;
+  text-decoration: none;
+}
+a.sidebar-link:hover {
+  background-color: rgba(255, 255, 255, 0.075);
+  border-left: 3px solid #3b7ddd;
+}
+
+.sidebar-link i {
+  font-size: 1.1rem;
+  margin-right: 0.75rem;
+}
+
+.sidebar-item {
+  position: relative;
+}
+
+.navbar {
+  display: flex;
+  padding: 0;
+}
+.navbar h1 {
+  font-size: 40px;
+  line-height: 50px;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin: 10px auto;
+}
+
+.documentation-main {
+  padding: 10px 20px;
+  margin-left: 5%;
+}
+.documentation-main .documentation-introdution {
+  padding: 20px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.documentation-main .documentation-introdution h2 {
+  font-size: 28px;
+  line-height: 38px;
+  font-weight: 500;
+  color: var(--text-white);
+  margin-bottom: 10px;
+}
+.documentation-main .documentation-introdution p {
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--text-white);
+}
+.documentation-main .documentation-introdution p a {
+  text-decoration: none;
+  color: var(--text-white) !important;
+}
+.documentation-main .documentation-start {
+  padding: 20px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  text-decoration: none !important;
+  margin-bottom: 20px;
+}
+.documentation-main .documentation-start h2 {
+  font-size: 28px;
+  line-height: 38px;
+  font-weight: 500;
+  color: var(--text-white);
+  margin-bottom: 10px;
+}
+.documentation-main .documentation-start p {
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--text-white);
+  margin-bottom: 10px;
+}
+.documentation-main .documentation-start .documentation-folder {
+  padding: 20px;
+  background-color: var(--text-white);
+}
+.documentation-main .documentation-start .documentation-folder p {
+  color: var(--text-black);
+}
+.documentation-main .documentation-start h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  color: var(--text-white);
+  margin-bottom: 10px;
+}
+.documentation-main .documentation-start a {
+  color: var(--text-black);
+  text-decoration: none;
+}
+.documentation-main .documentation-start .documetation-installation {
+  padding: 20px;
+  background-color: var(--text-white);
+}
+.documentation-main .documentation-start .documetation-installation p {
+  color: var(--text-black);
+}
+.documentation-main .documentation-start p {
+  margin-top: 10px;
+}
+.documentation-main .documentation-structure {
+  padding: 20px;
+  background-color: var(--primary-color);
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+.documentation-main .documentation-structure h2 {
+  font-size: 28px;
+  line-height: 38px;
+  font-weight: 500;
+  color: var(--text-white);
+  margin-bottom: 10px;
+}
+.documentation-main .documentation-structure p {
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--text-white);
+  margin-bottom: 10px;
+}
+.documentation-main .documentation-structure .documentation-structure-code {
+  padding: 20px;
+  background-color: var(--text-white);
+}
+.documentation-main .documentation-structure .documentation-structure-code h2 {
+  color: var(--text-black);
+}
+.documentation-main .documentation-structure .documentation-structure-code textarea {
+  height: auto;
+  outline: none;
+}
+.documentation-main .documentation-componets {
+  padding: 20px;
+  background-color: var(--primary-color);
+  margin-bottom: 20px;
+  border-radius: 10px;
+}/*# sourceMappingURL=documentation.css.map */
