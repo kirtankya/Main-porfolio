@@ -221,56 +221,51 @@
 
       .tab-item {
         border: none;
-        gap: 20px;
+        gap: 10px;
         margin-bottom: 10px;
 
-        @media (max-width: 992px) {
-          display: grid;
-          grid-template-columns: repeat(5, 1fr);
+        @media (max-width: 768px) {
+          display: flex;
           gap: 10px;
         }
 
         @media (max-width: 576px) {
           width: 100%;
-          display: grid;
-          grid-template-columns: repeat(5, 1fr);
+          flex-direction: column;
           align-items: center;
-          gap: 5px;
         }
 
-        a {
-          font-size: 16px;
-          line-height: 26px;
-          text-decoration: none;
-          color: var(--text-black);
-
-          @media (max-width: 768px) {
-            margin-top: 10px;
-            padding: 8px;
+        .button {
+          button {
+            padding: 10px 15px;
+            background-color: var(--primary-color);
+            color: var(--text-white);
+            border-radius: 25px;
             font-size: 14px;
-            line-height: 24px;
+
+            @media (max-width: 768px) {
+              padding: 10px 15px;
+              font-size: 14px;
+            }
           }
-          @media (max-width: 490px) {
-            padding: 1px;
-            font-size: 12px;
-            line-height: 23px;
+          .button-1 {
+            padding: 10px 15px;
+            background-color: var(--transparent-color);
+            color: var(--primary-color);
+            border-radius: 25px;
+            font-size: 14px;
+            transition: 0.5s all ease-in-out;
+            border: 1px solid var(--primary-color);
+            &:hover {
+              background-color: var(--primary-color);
+              color: var(--text-white);
+              transition: 0.5s all ease-in-out;
+            }
+            @media (max-width: 768px) {
+              padding: 10px 15px;
+              font-size: 14px;
+            }
           }
-        }
-
-        :nth-child(2) a {
-          color: #7b848b;
-        }
-
-        :nth-child(3) a {
-          color: #7b848b;
-        }
-
-        :nth-child(4) a {
-          color: #7b848b;
-        }
-
-        :nth-child(5) a {
-          color: #7b848b;
         }
       }
     }

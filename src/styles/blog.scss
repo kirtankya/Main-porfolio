@@ -235,6 +235,7 @@
       transition: 0.5s all ease-in-out;
       display: flex;
       flex-direction: column;
+      padding: 20px;
 
       @media (max-width: 768px) {
         padding: 10px;
@@ -246,7 +247,7 @@
 
       .article-image {
         max-width: 360px;
-        height: 264px;
+        height: 250px;
         background-image: url(../assets/image/blog-1.png);
         background-position: 50% 50%;
         background-repeat: no-repeat;
@@ -295,7 +296,7 @@
       .article-text {
         flex-grow: 1;
         max-height: 100%;
-        padding: 20px;
+        padding: 20px 0px;
         .article-item {
           display: flex;
           gap: 20px;
@@ -342,14 +343,11 @@
       a {
         text-decoration: none;
         button {
-          border: none;
+          border: 1px solid var(--primary-color);
           display: flex;
           align-items: center;
           gap: 10px;
         }
-      }
-      @media (max-width: 576px) {
-        padding: 0px 20px;
       }
     }
   }
